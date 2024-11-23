@@ -1,6 +1,6 @@
-class vertex {
-    constructor(distance = null, predecessor = null){
-        this.distance = distance
-        this.predecessor = predecessor
-    }
+const Queue = function(){
+    this.items = [];
+};
+Queue.prototype.enqueue = function(obj){
+    this.items.push(obj);
 };
