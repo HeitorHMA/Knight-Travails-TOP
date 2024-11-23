@@ -27,7 +27,12 @@ let doBFS = function(graph, source){
 
     for(let i=0; i<vertex.length;i++){
         var neighbour = graph[vertex][i];    
-        }
+        };
+    if(bfsInfo[neighbour].distance === null){
+        bfsInfo[neighbour].distance = bfsInfo[vertex].distance +1;
+        bfsInfo[neighbour].predecessor=vertex;
+        queue.enqueue(neighbour)
+    }
     }
 return bfsInfo;
 }
