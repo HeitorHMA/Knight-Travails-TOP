@@ -18,21 +18,37 @@ let doBFS = function(graph, source){
             distance : null,
             predecessor: null
         }}; 
+
     bfsInfo[source].distance = 0;
+
     var queue = new Queue();
     queue.enqueue(source);
 
     while(!queue.isEmpty()){
         let vertex = queue.dequeue();
 
-    for(let i=0; i<vertex.length;i++){
+    for(let i=0; i<graph[vertex].length;i++){
         var neighbour = graph[vertex][i];    
-        };
-    if(bfsInfo[neighbour].distance === null){
+    if(bfsInfo[neighbour].distance === null){  
         bfsInfo[neighbour].distance = bfsInfo[vertex].distance +1;
         bfsInfo[neighbour].predecessor=vertex;
         queue.enqueue(neighbour)
+    };
     }
     }
 return bfsInfo;
+};
+var adjList = [
+    [1],
+    [0, 4, 5],
+    [3, 4, 5],
+    [2, 6],
+    [1, 2],
+    [1, 2, 6],
+    [3, 5],
+    []
+    ];
+var bfsInfo = doBFS(adjList, 0);
+for (var i = 0; i < adjList.length; i++) {
+    console.log("vertex " + i + ": distance = " + bfsInfo[i].distance + ", predecessor = " + bfsInfo[i].predecessor);
 }
