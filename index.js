@@ -1,6 +1,8 @@
-createBoard(size){
-    let n = new Array(8);
-    for(i = 0; i <=  n ; i++){
-        for(j = 0; j <= n ; j++)
-    }
-}
+function createBoard(size){
+    let arr = [];
+    for(i = 0; i < size ; i++){
+        for(j = 0; j < size ; j++){
+            arr.push([i,j])
+        }
+    };
+};
