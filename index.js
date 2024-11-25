@@ -28,4 +28,65 @@ function possibleMoves(squareX,squareY,size){
     };
     return moves
 }
-console.log(possibleMoves(1,2,8))
+function
+function knightTravails(startPos,endPos,size){
+    startPos ={
+        x : startPos[0],
+        y: startPos[1],
+        distance: 0,
+        predecessor: null
+        };
+    let queue = [];
+    queue.push(startPos);
+    while(queue.length){
+        let vertex = queue.shift();
+        let pMoves = possibleMoves(vertex.x,vertex.y,size);
+        if(vertex.x === endPos[0] && vertex.y === endPos[1]){
+            return showResults(vertex);
+        }
+         while(pMoves.length){
+            let curPosition = pMoves.shift();
+            curPosition ={
+                x: curPosition[0],
+                y: curPosition[1],
+                distance: vertex.distance + 1,
+                predecessor: vertex
+            };
+            queue.push(curPosition);
+        }
+    }
+}
+
+console.log(knightTravails([1,1],[5,4],8));
+
+/*function breadthFirstArray(start,graph){
+    let bfsarr = [];
+    for(let i = 0;i < graph.length;i++){
+        bfsarr[i] = {
+            distance: null,
+            predecessor:null
+        };
+    };
+    bfsarr[start].distance = 0;
+    return bfsarr;
+};
+function breadthFirstSearch(start,graph){
+    let bfs = breadthFirstArray(start,graph);
+    let queue = [];
+    queue.push(start);
+    while(queue.length){
+        let index = queue.shift;
+        for(i = 0;i<bfs[index]; i++){
+            let adjency = bfs[index][i];
+            if(bfs[adjency].distance = null){
+                bfs[adjency].distance = bfs[index].distance + 1;
+                bfs[adjency].predecessor = bfs[index];
+            }
+        }
+    }
+  
+}
+let adjr = createBoard(2)
+console.log(adjr)
+
+console.log(breadthFirstArray(2,adjr))*/
