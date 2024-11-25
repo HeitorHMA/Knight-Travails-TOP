@@ -28,7 +28,15 @@ function possibleMoves(squareX,squareY,size){
     };
     return moves
 }
-function
+function showResults(vertex){
+    let distance = vertex.distance;
+    let queue = [];
+    queue.push(vertex.predecessor);
+    while(queue.length){
+        if(vertex.predecessor !== null)
+        queue.push(vertex.predecessor);
+    }
+}
 function knightTravails(startPos,endPos,size){
     startPos ={
         x : startPos[0],
