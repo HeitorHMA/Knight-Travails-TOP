@@ -31,11 +31,21 @@ function possibleMoves(squareX,squareY,size){
 function showResults(vertex){
     let distance = vertex.distance;
     let queue = [];
-    queue.push(vertex.predecessor);
+    let visited = []
+    queue.push(vertex);
     while(queue.length){
-        if(vertex.predecessor !== null)
-        queue.push(vertex.predecessor);
+        let current = queue.shift();
+        visited.push([current.x,current.y])
+        if(current.predecessor){
+        queue.push(current.predecessor)
+        }
     }
+    let sortedArr = [];
+    for(i=visited.length-1;i>=0;i--){
+        sortedArr.push(visited[i])
+    }
+    console.log(`You did it in ${distance} moves! , the path your knight made was:` );
+    console.log(sortedArr)
 }
 function knightTravails(startPos,endPos,size){
     startPos ={
